@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BÁ KHÍ (霸氣) - Băng Hoả Chi Vương | By minhduc290613</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800;900&family=Noto+Serif+TC:wght@700;900&family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,700;1,600&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        cinzel: ['"Cinzel"', 'serif'],
+                        oriental: ['"Noto Serif TC"', 'serif'],
+                        serif: ['"Playfair Display"', 'serif'],
+                    },
+                    colors: {
+                        frostCyan: '#00f3ff',
+                        deepIce: '#0a192f',
+                        abyssalDark: '#030712',
+                        bloodRed: '#e11d48',
+                        dragonGold: '#ffd700',
+                    },
+                    animation: {
+                        'pulse-frost': 'pulseFrost 3s infinite ease-in-out',
+                        'float': 'float 6s infinite ease-in-out',
+                        'glacial-glow': 'glacialGlow 4s infinite alternate',
+                    },
+                    keyframes: {
+                        pulseFrost: {
+                            '0%, 100%': { filter: 'drop-shadow(0 0 25px rgba(0, 243, 255, 0.4)) drop-shadow(0 0 45px rgba(225, 29, 72, 0.3))' },
+                            '50%': { filter: 'drop-shadow(0 0 60px rgba(0, 243, 255, 0.8)) drop-shadow(0 0 90px rgba(255, 215, 0, 0.5))' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-12px)' },
+                        },
+                        glacialGlow: {
+                            '0%': { borderColor: 'rgba(0, 243, 255, 0.3)' },
+                            '100%': { borderColor: 'rgba(225, 29, 72, 0.6)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Cold Cyan & Crimson Scrollbars */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #030712;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #0e2f44;
+            border-radius: 3px;
+            border: 1px solid rgba(0, 243, 255, 0.3);
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #00f3ff;
+        }
+
+        body {
+            background-color: #030712;
+            color: #E2E8F0;
+            overflow-x: hidden;
+        }
+
+        /* Frigid Glowing Text Effects */
+        .glow-text-cyan {
+            text-shadow: 0 0 20px rgba(0, 243, 255, 0.7), 0 0 40px rgba(0, 243, 255, 0.4);
+        }
+        .glow-text-gold {
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.6), 0 0 40px rgba(255, 215, 0, 0.3);
+        }
+        .glow-text-red {
+            text-shadow: 0 0 20px rgba(225, 29, 72, 0.8), 0 0 50px rgba(153, 0, 0, 0.5);
+        }
+
+        /* Frost Glassmorphism Cards */
+        .frost-card {
+            background: linear-gradient(135deg, rgba(10, 25, 47, 0.7) 0%, rgba(3, 7, 18, 0.9) 100%);
+            border: 1px solid rgba(0, 243, 255, 0.2);
+            backdrop-filter: blur(16px);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+        .frost-card:hover {
+            border-color: rgba(0, 243, 255, 0.5);
+            box-shadow: 0 0 35px rgba(0, 243, 255, 0.25);
+        }
+
+        /* Scroll Reveal Utility Classes */
+        .reveal-node {
+            opacity: 0;
+            transform: translateY(60px) scale(0.96);
+            transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: transform, opacity;
+        }
+        .reveal-node.active {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        /* Calligraphy Brush Watermark */
+        .kanji-bg {
+            font-family: 'Noto Serif TC', serif;
+            background: linear-gradient(180deg, rgba(0, 243, 255, 0.15) 0%, rgba(225, 29, 72, 0.15) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Dual Range Slider Styling */
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            height: 24px;
+            width: 24px;
+            border-radius: 50%;
+            background: #00f3ff;
+            cursor: pointer;
+            box-shadow: 0 0 15px #00f3ff, 0 0 30px #e11d48;
+            border: 2px solid #fff;
+        }
+
+        #lightningOverlay {
+            pointer-events: none;
+            transition: opacity 0.08s ease-out;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased selection:bg-frostCyan selection:text-black">
+
+    <!-- Canvas Background for Frost, Snowflakes, Embers & Shockwaves -->
+    <canvas id="auraCanvas" class="fixed top-0 left-0 w-full h-full pointer-events-none z-0"></canvas>
+
+    <!-- Shockwave Flash Layer -->
+    <div id="lightningOverlay" class="fixed top-0 left-0 w-full h-full bg-cyan-200/20 opacity-0 z-30 pointer-events-none"></div>
+
+    <!-- Top Navigation Bar & Brand Badge -->
+    <header class="fixed top-0 left-0 w-full z-50 bg-abyssalDark/85 backdrop-blur-md border-b border-cyan-950/60 px-4 sm:px-8 py-3 flex justify-between items-center">
+        <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-md bg-gradient-to-tr from-frostCyan via-deepIce to-bloodRed p-[1px] shadow-[0_0_15px_rgba(0,243,255,0.4)]">
+                <div class="w-full h-full bg-abyssalDark rounded-[5px] flex items-center justify-center font-oriental font-black text-frostCyan text-base">
+                    霸
+                </div>
+            </div>
+            <div>
+                <span class="font-cinzel text-xs tracking-[0.2em] text-frostCyan uppercase font-extrabold block">BÁ KHÍ</span>
+                <span class="text-[10px] text-gray-400 font-mono tracking-wider block">BĂNG HOẢ UY ÁP</span>
+            </div>
+        </div>
+
+        <!-- Right Side: Audio Toggle & Copyright Badge -->
+        <div class="flex items-center gap-4">
+            <!-- Web Audio Sound Engine Toggle -->
+            <button id="soundToggle" class="flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-900/90 border border-cyan-900/50 text-xs font-mono text-gray-300 hover:text-frostCyan hover:border-frostCyan/50 transition-all">
+                <i id="soundIcon" class="fa-solid fa-volume-xmark text-cyan-400"></i>
+                <span id="soundStatus" class="hidden sm:inline">Âm Âm: Mở</span>
+            </button>
+
+            <!-- Copyright Badge -->
+            <div class="flex items-center gap-2 px-3 py-1.5 rounded-full bg-cyan-950/40 border border-frostCyan/30 text-xs font-mono">
+                <span class="text-gray-400 hidden sm:inline">Tác giả</span>
+                <span class="text-frostCyan font-bold glow-text-cyan">minhduc290613</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Scroll Progress Indicator Bar -->
+    <div class="fixed top-[57px] left-0 w-full h-[2px] z-50 bg-slate-950">
+        <div id="progressBar" class="h-full bg-gradient-to-r from-frostCyan via-dragonGold to-bloodRed w-0 transition-all duration-100 shadow-[0_0_12px_#00f3ff]"></div>
+    </div>
+
+    <!-- Floating Navigation Indicators (Right) -->
+    <nav class="fixed right-4 sm:right-6 top-1/2 -translate-y-1/2 z-40 hidden md:flex flex-col gap-5">
+        <a href="#hero" class="nav-dot group relative w-3 h-3 rounded-full bg-slate-800 transition-all duration-300 hover:bg-frostCyan" data-section="hero">
+            <span class="absolute right-7 top-1/2 -translate-y-1/2 px-3 py-1 rounded bg-abyssalDark text-xs font-mono text-frostCyan opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap border border-frostCyan/30">
+                00. Khởi Đầu Hàn Băng
+            </span>
+        </a>
+        <a href="#chapter1" class="nav-dot group relative w-3 h-3 rounded-full bg-slate-800 transition-all duration-300 hover:bg-frostCyan" data-section="chapter1">
+            <span class="absolute right-7 top-1/2 -translate-y-1/2 px-3 py-1 rounded bg-abyssalDark text-xs font-mono text-frostCyan opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap border border-frostCyan/30">
+                01. Nguồn Gốc & Khái Niệm
+            </span>
+        </a>
+        <a href="#tiktok" class="nav-dot group relative w-3 h-3 rounded-full bg-slate-800 transition-all duration-300 hover:bg-frostCyan" data-section="tiktok">
+            <span class="absolute right-7 top-1/2 -translate-y-1/2 px-3 py-1 rounded bg-abyssalDark text-xs font-mono text-frostCyan opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap border border-frostCyan/30">
+                02. Hiện Tượng Toàn Bá Khí
+            </span>
+        </a>
+        <a href="#chapter2" class="nav-dot group relative w-3 h-3 rounded-full bg-slate-800 transition-all duration-300 hover:bg-frostCyan" data-section="chapter2">
+            <span class="absolute right-7 top-1/2 -translate-y-1/2 px-3 py-1 rounded bg-abyssalDark text-xs font-mono text-frostCyan opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap border border-frostCyan/30">
+                03. Tam Đại Cảnh Giới
+            </span>
+        </a>
+        <a href="#outro" class="nav-dot group relative w-3 h-3 rounded-full bg-slate-800 transition-all duration-300 hover:bg-frostCyan" data-section="outro">
+            <span class="absolute right-7 top-1/2 -translate-y-1/2 px-3 py-1 rounded bg-abyssalDark text-xs font-mono text-frostCyan opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap border border-frostCyan/30">
+                04. Thức Tỉnh Linh Hồn
+            </span>
+        </a>
+    </nav>
+
+    <!-- Main Scrollytelling Body -->
+    <main class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <!-- ================= HERO SECTION ================= -->
+        <section id="hero" class="min-h-screen flex flex-col justify-center items-center text-center relative py-20">
+            <!-- Background Kanji Watermark -->
+            <div class="absolute inset-0 flex items-center justify-center pointer-events-none opacity-15 z-0">
+                <span class="kanji-bg text-[18rem] sm:text-[28rem] font-black select-none leading-none">霸氣</span>
+            </div>
+
+            <div class="reveal-node active space-y-8 max-w-4xl relative z-10">
+                <!-- Tagline Badge -->
+                <div class="inline-flex items-center gap-3 px-4 py-1.5 rounded-full bg-cyan-950/60 border border-frostCyan/40 text-frostCyan text-xs font-cinzel tracking-[0.3em] uppercase">
+                    <span class="w-2 h-2 rounded-full bg-frostCyan animate-ping"></span>
+                    Băng Hoả Uy Áp • Hàn Băng Tuyệt Đối
+                </div>
+
+                <!-- Main Kanji & Title -->
+                <div class="space-y-2">
+                    <h1 class="text-7xl sm:text-9xl font-black font-oriental text-transparent bg-clip-text bg-gradient-to-b from-cyan-100 via-frostCyan to-bloodRed animate-pulse-frost tracking-widest">
+                        BÁ KHÍ
+                    </h1>
+                    <p class="font-cinzel text-xl sm:text-3xl text-cyan-300 font-bold tracking-[0.4em] uppercase glow-text-cyan">
+                        THE COLD FRIGID DOMINANCE
+                    </p>
+                </div>
+
+                <!-- Narrative Intro -->
+                <p class="text-base sm:text-xl font-serif text-slate-300 max-w-2xl mx-auto leading-relaxed italic">
+                    "Khí sương ngưng đọng trên sống kiếm, ánh mắt lạnh lẽo thấu tâm can. Không cần cuồng bạo, sự điềm tĩnh đóng băng vạn vật chính là Bá Khí tối thượng."
+                </p>
+
+                <p class="text-xs sm:text-sm text-cyan-400/80 max-w-lg mx-auto font-mono tracking-wider">
+                    Cuộn xuống để trải nghiệm sự hòa quyện giữa cổ điển, hiện đại và hiện tượng mạng Toàn Bá Khí.
+                </p>
+            </div>
+
+            <!-- Scroll Down Animation Indicator -->
+            <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-frostCyan/80 animate-bounce">
+                <span class="text-[10px] font-mono tracking-[0.3em] uppercase text-frostCyan">Cuộn Khai Mở</span>
+                <i class="fa-solid fa-angles-down text-frostCyan"></i>
+            </div>
+        </section>
+
+
+        <!-- TIMELINE CONTAINER WITH CENTRAL ENERGY LINE -->
+        <div class="relative my-12">
+            <div class="hidden md:block absolute left-1/2 top-0 bottom-0 w-[2px] bg-gradient-to-b from-frostCyan via-dragonGold to-bloodRed -translate-x-1/2 opacity-30"></div>
+
+
+            <!-- ================= CHAPTER 1 ================= -->
+            <section id="chapter1" class="min-h-screen flex items-center py-24 relative">
+                <div class="w-full grid md:grid-cols-2 gap-12 items-center">
+                    
+                    <!-- Left Column: Story & Concept -->
+                    <div class="reveal-node md:pr-10 space-y-6">
+                        <div class="flex items-center gap-3">
+                            <span class="px-3 py-1 rounded bg-cyan-950 border border-cyan-800/50 font-mono text-xs text-frostCyan">CHƯƠNG 01</span>
+                            <span class="text-xs font-mono text-gray-400 uppercase tracking-widest">Triết Lý Cổ Đại & Lạnh Lẽo</span>
+                        </div>
+
+                        <h2 class="text-3xl sm:text-5xl font-oriental font-bold text-white leading-tight">
+                            Bá Khí Hàn Băng <br>
+                            <span class="text-transparent bg-clip-text bg-gradient-to-r from-frostCyan to-bloodRed">Uy Áp Lạnh Lẽo Tự Trong Tâm</span>
+                        </h2>
+
+                        <p class="text-slate-300 leading-relaxed font-sans text-sm sm:text-base">
+                            Nếu như <strong class="text-bloodRed font-oriental">"Nhiệt Huyết Bá Khí"</strong> bộc phát như ngọn lửa thiêu rụi đối thủ, thì <strong class="text-frostCyan font-oriental">"Hàn Băng Bá Khí"</strong> là sự ngưng đọng tuyệt đối. Đó là trạng thái tâm trí lạnh như băng tuyết, kiểm soát hoàn toàn cảm xúc trước mọi bão giông.
+                        </p>
+
+                        <p class="text-slate-400 leading-relaxed font-sans text-sm">
+                            Trong triết học Bá Đạo, kẻ nắm giữ Bá Khí không bị dao động bởi nỗi sợ hãi. Uy áp lạnh lẽo tạo ra một trường năng lượng khiến kẻ địch tự gục ngã vì áp lực tâm lý.
+                        </p>
+
+                        <div class="p-4 rounded-xl border border-cyan-900/40 bg-cyan-950/30 font-serif text-sm italic text-cyan-200 relative">
+                            <i class="fa-solid fa-snowflake text-2xl text-cyan-900/40 absolute top-2 left-2"></i>
+                            <p class="pl-6">
+                                "Tâm tĩnh như mặt hồ đóng băng, khí lạnh như sương đêm đại ngàn. Bá Khí chân chính không nằm ở tiếng gầm, mà ở sự im lặng đầy đe dọa."
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Interactive Dual Aura Gauge (Băng vs Hoả) -->
+                    <div class="reveal-node md:pl-10">
+                        <div class="frost-card p-8 rounded-2xl space-y-6 text-center relative overflow-hidden">
+                            <div class="text-xs font-mono text-frostCyan uppercase tracking-widest">Giả Lập Băng Hoả Bá Khí</div>
+                            <h3 class="text-xl font-oriental font-bold text-white">Chuyển Dịch Thái Cực Năng Lượng</h3>
+
+                            <!-- Dynamic Visual Display based on slider -->
+                            <div id="auraGaugeDisplay" class="py-8 transition-all duration-500">
+                                <div id="auraKanji" class="text-8xl font-oriental font-black text-transparent bg-clip-text bg-gradient-to-t from-cyan-400 to-slate-200 transition-all duration-500">
+                                    氣
+                                </div>
+                                <div id="auraTitle" class="mt-4 font-cinzel font-bold text-lg text-frostCyan tracking-wider">
+                                    HÀN BĂNG BÁ KHÍ (0%)
+                                </div>
+                                <p id="auraDesc" class="mt-2 text-xs text-slate-300 max-w-xs mx-auto font-sans">
+                                    Khí lạnh thấu xương, tâm trí ngưng trệ, đóng băng mọi suy nghĩ tiêu cực xung quanh.
+                                </p>
+                            </div>
+
+                            <!-- Interactive Slider Control -->
+                            <div class="space-y-3 pt-4 border-t border-cyan-900/40">
+                                <div class="flex justify-between text-xs font-mono">
+                                    <span class="text-frostCyan font-bold">Băng Khí (Lạnh Lẽo)</span>
+                                    <span class="text-bloodRed font-bold">Hoả Khí (Rực Rỡ)</span>
+                                </div>
+                                <input type="range" id="auraRange" min="0" max="100" value="10" class="w-full h-2 bg-slate-950 rounded-lg appearance-none cursor-pointer border border-cyan-800">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+
+            <!-- ================= TIKTOK VIRAL CHAPTER ================= -->
+            <section id="tiktok" class="min-h-screen flex items-center py-24 relative">
+                <div class="w-full space-y-12">
+                    
+                    <!-- Section Header -->
+                    <div class="reveal-node text-center max-w-3xl mx-auto space-y-4">
+                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gradient-to-r from-pink-900/50 to-cyan-900/50 border border-pink-500/30 text-xs font-mono text-pink-300">
+                            <i class="fa-brands fa-tiktok text-pink-400"></i>
+                            HIỆN TƯỢNG MẠNG TIKTOK
+                        </div>
+                        <h2 class="text-3xl sm:text-5xl font-oriental font-extrabold text-white">
+                            Toàn Bá Khí & Làn Sóng Pop Culture
+                        </h2>
+                        <p class="text-slate-300 text-sm sm:text-base font-sans">
+                            Hành trình đem thuật ngữ cổ điển "Bá Khí" trở thành trào lưu viral bùng nổ khắp cộng đồng giới trẻ Việt Nam.
+                        </p>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-10 items-center">
+                        
+                        <!-- Left: TikTok Profile & Trend Card -->
+                        <div class="reveal-node frost-card p-8 rounded-2xl border-cyan-500/30 space-y-6 relative overflow-hidden">
+                            <div class="flex items-center gap-4">
+                                <div class="w-16 h-16 rounded-full bg-gradient-to-tr from-cyan-400 via-pink-500 to-dragonGold p-[2px] shadow-[0_0_20px_rgba(0,243,255,0.4)]">
+                                    <div class="w-full h-full bg-slate-950 rounded-full flex items-center justify-center font-oriental font-bold text-2xl text-frostCyan">
+                                        全
+                                    </div>
+                                </div>
+                                <div>
+                                    <h3 class="text-2xl font-bold font-oriental text-white flex items-center gap-2">
+                                        Toàn Bá Khí
+                                        <i class="fa-solid fa-circle-check text-frostCyan text-sm"></i>
+                                    </h3>
+                                    <p class="text-xs font-mono text-pink-400">@toanbakhi001 • TikTok Creator</p>
+                                </div>
+                            </div>
+
+                            <p class="text-sm text-slate-300 leading-relaxed font-sans">
+                                Qua các clip ngắn thần thái, phát ngôn tự tin và phong cách không lẫn vào đâu được, account TikTok <strong class="text-frostCyan font-bold">Toàn Bá Khí</strong> đã biến một khái niệm kiếm hiệp xưa cũ thành biểu tượng của sự <span class="text-dragonGold font-semibold">Tự Tin Tuyệt Đối, Thần Thái Bất Cần</span> và <span class="text-pink-400 font-semibold">Bản Lĩnh Hiện Đại</span>.
+                            </p>
+
+                            <!-- Mini Metrics Box -->
+                            <div class="grid grid-cols-3 gap-3 text-center pt-4 border-t border-cyan-900/40">
+                                <div class="p-3 rounded-lg bg-cyan-950/40 border border-cyan-900/30">
+                                    <div class="text-lg font-bold text-frostCyan font-mono">VIRAL</div>
+                                    <div class="text-[10px] text-gray-400">Trào Lưu TikTok</div>
+                                </div>
+                                <div class="p-3 rounded-lg bg-pink-950/40 border border-pink-900/30">
+                                    <div class="text-lg font-bold text-pink-400 font-mono">100%</div>
+                                    <div class="text-[10px] text-gray-400">Thần Thái</div>
+                                </div>
+                                <div class="p-3 rounded-lg bg-amber-950/40 border border-amber-900/30">
+                                    <div class="text-lg font-bold text-dragonGold font-mono">TOP</div>
+                                    <div class="text-[10px] text-gray-400">Trending Meme</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right: Impact & Evolution Content -->
+                        <div class="reveal-node space-y-6">
+                            <div class="space-y-4">
+                                <h3 class="text-2xl font-oriental font-bold text-white">
+                                    Từ Phát Ngôn Đến Khái Niệm Sống
+                                </h3>
+                                <p class="text-slate-300 text-sm leading-relaxed">
+                                    Cụm từ "Bá Khí" giờ đây không chỉ xuất hiện trong phim kiếm hiệp hay anime mà đã đi vào đời sống hằng ngày của giới trẻ:
+                                </p>
+                            </div>
+
+                            <div class="space-y-3">
+                                <div class="p-4 rounded-xl frost-card border-l-4 border-l-frostCyan flex items-start gap-3">
+                                    <i class="fa-solid fa-bolt text-frostCyan text-lg mt-1"></i>
+                                    <div>
+                                        <strong class="text-white text-sm block">"Thần Thái Bá Khí"</strong>
+                                        <span class="text-slate-400 text-xs">Đi đứng, nói năng dứt khoát, thể hiện cái tôi vững vàng, không bị lung lay bởi lời nói xung quanh.</span>
+                                    </div>
+                                </div>
+
+                                <div class="p-4 rounded-xl frost-card border-l-4 border-l-pink-500 flex items-start gap-3">
+                                    <i class="fa-solid fa-fire text-pink-500 text-lg mt-1"></i>
+                                    <div>
+                                        <strong class="text-white text-sm block">"Phát Ngôn Đầy Bá Khí"</strong>
+                                        <span class="text-slate-400 text-xs">Các câu nói khẳng định giá trị bản thân, vừa mang tính giải trí hài hước vừa tạo sự cuốn hút đặc biệt.</span>
+                                    </div>
+                                </div>
+
+                                <div class="p-4 rounded-xl frost-card border-l-4 border-l-dragonGold flex items-start gap-3">
+                                    <i class="fa-solid fa-crown text-dragonGold text-lg mt-1"></i>
+                                    <div>
+                                        <strong class="text-white text-sm block">Lan Tỏa Động Lực Tự Tin</strong>
+                                        <span class="text-slate-400 text-xs">Khuyến khích người trẻ dám bước ra khỏi vùng an toàn và thể hiện bản sắc cá nhân một cách đầy kiêu hãnh.</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </section>
+
+
+            <!-- ================= CHAPTER 2 ================= -->
+            <section id="chapter2" class="min-h-screen flex items-center py-24 relative">
+                <div class="w-full space-y-12">
+                    
+                    <!-- Section Header -->
+                    <div class="reveal-node text-center max-w-3xl mx-auto space-y-4">
+                        <span class="px-3 py-1 rounded bg-cyan-950 border border-cyan-800/50 font-mono text-xs text-frostCyan">CHƯƠNG 03</span>
+                        <h2 class="text-3xl sm:text-5xl font-oriental font-extrabold text-white">
+                            Tam Đại Cảnh Giới Bá Khí
+                        </h2>
+                        <p class="text-slate-400 text-sm sm:text-base font-sans">
+                            Từ sự đóng băng tâm trí cho đến khả năng biến đổi linh hồn và xoay chuyển càn khôn.
+                        </p>
+                    </div>
+
+                    <!-- 3 Realm Cards Grid -->
+                    <div class="grid md:grid-cols-3 gap-8">
+                        
+                        <!-- Realm 1 -->
+                        <div class="reveal-node frost-card p-8 rounded-2xl space-y-5 relative group hover:-translate-y-2 transition-all duration-500">
+                            <div class="w-14 h-14 rounded-xl bg-cyan-950/80 border border-cyan-700/50 flex items-center justify-center text-frostCyan font-oriental text-2xl group-hover:scale-110 group-hover:border-frostCyan transition-all">
+                                壹
+                            </div>
+                            <div class="text-xs font-mono text-frostCyan tracking-widest uppercase">CẢNH GIỚI HÀN BĂNG</div>
+                            <h3 class="text-2xl font-oriental font-bold text-white group-hover:text-frostCyan transition-colors">
+                                Sương Đóng Tâm Trí
+                            </h3>
+                            <p class="text-slate-400 text-sm leading-relaxed font-sans">
+                                Giữ cái đầu lạnh trong mọi tình huống. Ánh mắt đóng băng dội ngược mọi sự khiêu khích hay áp lực từ bên ngoài.
+                            </p>
+                            <div class="text-xs font-mono text-frostCyan/80 pt-4 border-t border-cyan-900/30 flex items-center gap-2">
+                                <i class="fa-solid fa-snowflake text-frostCyan"></i>
+                                <span>Băng Tâm Kiểm Soát</span>
+                            </div>
+                        </div>
+
+                        <!-- Realm 2 -->
+                        <div class="reveal-node frost-card p-8 rounded-2xl space-y-5 relative group hover:-translate-y-2 transition-all duration-500 border-cyan-500/40">
+                            <div class="w-14 h-14 rounded-xl bg-slate-900/80 border border-dragonGold/60 flex items-center justify-center text-dragonGold font-oriental text-2xl group-hover:scale-110 shadow-[0_0_20px_rgba(0,243,255,0.3)] transition-all">
+                                貳
+                            </div>
+                            <div class="text-xs font-mono text-dragonGold tracking-widest uppercase">CẢNH GIỚI BĂNG HOẢ</div>
+                            <h3 class="text-2xl font-oriental font-bold text-white group-hover:text-dragonGold transition-colors">
+                                Cuồng Phong Tuyết Lửa
+                            </h3>
+                            <p class="text-slate-400 text-sm leading-relaxed font-sans">
+                                Sự kết hợp giữa cái đầu lạnh lẽo và trái tim nhiệt huyết rực cháy. Tạo nên phong thái vừa quyết đoán vừa lôi cuốn vạn người.
+                            </p>
+                            <div class="text-xs font-mono text-dragonGold/80 pt-4 border-t border-cyan-900/30 flex items-center gap-2">
+                                <i class="fa-solid fa-volcano text-dragonGold animate-pulse"></i>
+                                <span>Băng Hoả Dung Hòa</span>
+                            </div>
+                        </div>
+
+                        <!-- Realm 3 -->
+                        <div class="reveal-node frost-card p-8 rounded-2xl space-y-5 relative group hover:-translate-y-2 transition-all duration-500">
+                            <div class="w-14 h-14 rounded-xl bg-rose-950/80 border border-rose-800/50 flex items-center justify-center text-bloodRed font-oriental text-2xl group-hover:scale-110 group-hover:border-bloodRed transition-all">
+                                參
+                            </div>
+                            <div class="text-xs font-mono text-bloodRed tracking-widest uppercase">CẢNH GIỚI CHÍ TÔN</div>
+                            <h3 class="text-2xl font-oriental font-bold text-white group-hover:text-bloodRed transition-colors">
+                                Bá Vương Tuyệt Đỉnh
+                            </h3>
+                            <p class="text-slate-400 text-sm leading-relaxed font-sans">
+                                Đạt tới đỉnh cao thần thái. Bất kể là trong game, mạng xã hội hay đời thực, xuất hiện ở đâu liền trở thành tâm điểm ở đó.
+                            </p>
+                            <div class="text-xs font-mono text-bloodRed/80 pt-4 border-t border-cyan-900/30 flex items-center gap-2">
+                                <i class="fa-solid fa-crown text-bloodRed"></i>
+                                <span>Độc Tôn Thiên Hạ</span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </section>
+
+        </div>
+
+
+        <!-- ================= INTERACTIVE AWAKENING OUTRO ================= -->
+        <section id="outro" class="min-h-screen flex flex-col justify-center items-center text-center py-20 relative">
+            <div class="reveal-node max-w-3xl space-y-8 relative z-10">
+                <div class="inline-block p-4 rounded-full bg-cyan-950/60 border border-frostCyan/40 shadow-[0_0_30px_rgba(0,243,255,0.3)] mb-2">
+                    <i class="fa-solid fa-dragon text-4xl text-frostCyan animate-pulse"></i>
+                </div>
+
+                <h2 class="text-4xl sm:text-7xl font-black font-oriental text-white tracking-wide">
+                    THỨC TỈNH BÁ KHÍ
+                </h2>
+
+                <p class="text-slate-300 text-base sm:text-xl font-serif italic max-w-xl mx-auto leading-relaxed">
+                    "Dù là núi tuyết ngàn năm hay sóng gió cuộc đời, người giữ được Bá Khí sẽ luôn đứng vững."
+                </p>
+
+                <!-- Interactive Shockwave Awakening Pulse Button -->
+                <div class="pt-6">
+                    <button id="awakenBtn" class="relative group px-10 py-5 rounded-2xl bg-gradient-to-r from-frostCyan via-deepIce to-bloodRed text-black font-oriental font-black text-2xl shadow-[0_0_40px_rgba(0,243,255,0.5)] hover:shadow-[0_0_80px_rgba(0,243,255,0.8)] hover:scale-105 active:scale-95 transition-all duration-300 border border-frostCyan">
+                        <span class="relative z-10 flex items-center gap-3 text-white glow-text-cyan">
+                            <i class="fa-solid fa-snowflake text-frostCyan"></i>
+                            KÍCH HOẠT UY ÁP
+                            <i class="fa-solid fa-fire text-bloodRed"></i>
+                        </span>
+                    </button>
+                </div>
+
+                <!-- Quote Generator Display Box -->
+                <div id="quoteBox" class="min-h-[90px] p-6 rounded-xl frost-card border border-frostCyan/30 opacity-0 transition-all duration-700 max-w-2xl mx-auto">
+                    <p id="quoteText" class="font-serif text-lg text-frostCyan font-bold italic">
+                        <!-- Dynamic quote inserted here -->
+                    </p>
+                    <span id="quoteAuthor" class="block mt-2 text-xs font-mono text-gray-400 uppercase tracking-widest">
+                        — Khẩu Quyết Toàn Bá Khí & Cổ Nhân
+                    </span>
+                </div>
+            </div>
+
+            <!-- Footer Branding & Copyright Notice -->
+            <footer class="mt-20 w-full py-8 border-t border-cyan-900/40 text-center space-y-3 relative z-10">
+                <div class="flex items-center justify-center gap-2 text-sm font-mono text-frostCyan">
+                    <i class="fa-solid fa-snowflake text-frostCyan"></i>
+                    <span>Sáng tạo giao diện nghe nhìn bởi <strong class="text-white glow-text-cyan">minhduc290613</strong></span>
+                </div>
+                <p class="text-xs text-gray-500 font-mono">
+                    Copyright © 2026 <span class="text-gray-300 font-semibold">minhduc290613</span>. Bá Khí Scrollytelling Experience & TikTok Trend Chronicles. All Rights Reserved.
+                </p>
+            </footer>
+        </section>
+
+    </main>
+
+    <!-- Interactive Logic & Custom Web Audio Sound Generator -->
+    <script>
+        // ================= WEB AUDIO SYNTHESIZER FOR COLD AMBIENT SOUNDS =================
+        let audioCtx = null;
+        let soundEnabled = true;
+
+        function initAudio() {
+            if (!audioCtx) {
+                const AudioContext = window.AudioContext || window.webkitAudioContext;
+                audioCtx = new AudioContext();
+            }
+        }
+
+        // Play synthetic frigid bass shockwave
+        function playImpactSound() {
+            if (!soundEnabled) return;
+            initAudio();
+            if (audioCtx.state === 'suspended') {
+                audioCtx.resume();
+            }
+
+            const osc = audioCtx.createOscillator();
+            const gain = audioCtx.createGain();
+
+            osc.type = 'sine';
+            osc.frequency.setValueAtTime(220, audioCtx.currentTime);
+            osc.frequency.exponentialRampToValueAtTime(35, audioCtx.currentTime + 1.2);
+
+            gain.gain.setValueAtTime(0.9, audioCtx.currentTime);
+            gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 1.2);
+
+            osc.connect(gain);
+            gain.connect(audioCtx.destination);
+
+            osc.start();
+            osc.stop(audioCtx.currentTime + 1.2);
+        }
+
+        // Sound Toggle Handler
+        const soundToggleBtn = document.getElementById('soundToggle');
+        const soundIcon = document.getElementById('soundIcon');
+        const soundStatus = document.getElementById('soundStatus');
+
+        soundToggleBtn.addEventListener('click', () => {
+            soundEnabled = !soundEnabled;
+            if (soundEnabled) {
+                soundIcon.className = 'fa-solid fa-volume-high text-frostCyan';
+                soundStatus.innerText = 'Âm Âm: Mở';
+                playImpactSound();
+            } else {
+                soundIcon.className = 'fa-solid fa-volume-xmark text-bloodRed';
+                soundStatus.innerText = 'Âm Âm: Tắt';
+            }
+        });
+
+
+        // ================= DYNAMIC CANVAS ENGINE: SNOWFLAKES, EMBERS & AURA =================
+        const canvas = document.getElementById('auraCanvas');
+        const ctx = canvas.getContext('2d');
+
+        let particlesArray = [];
+        let width = canvas.width = window.innerWidth;
+        let height = canvas.height = window.innerHeight;
+
+        window.addEventListener('resize', () => {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+            initParticles();
+        });
+
+        class FrostParticle {
+            constructor() {
+                this.reset();
+            }
+
+            reset() {
+                this.x = Math.random() * width;
+                this.y = Math.random() * height;
+                this.size = Math.random() * 2.5 + 1;
+                this.speedY = Math.random() * 1 + 0.3;
+                this.speedX = (Math.random() - 0.5) * 0.5;
+                // Mix of Frost Cyan, Blood Red, and Gold
+                const rand = Math.random();
+                if (rand > 0.4) {
+                    this.color = 'rgba(0, 243, 255, ';
+                } else if (rand > 0.2) {
+                    this.color = 'rgba(225, 29, 72, ';
+                } else {
+                    this.color = 'rgba(255, 215, 0, ';
+                }
+                this.alpha = Math.random() * 0.7 + 0.2;
+            }
+
+            update() {
+                this.y += this.speedY;
+                this.x += this.speedX;
+
+                if (this.y > height + 10) {
+                    this.y = -10;
+                    this.x = Math.random() * width;
+                }
+            }
+
+            draw() {
+                ctx.fillStyle = this.color + this.alpha + ')';
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+
+                ctx.shadowBlur = 8;
+                ctx.shadowColor = '#00f3ff';
+            }
+        }
+
+        function initParticles() {
+            particlesArray = [];
+            const count = Math.min(Math.floor(width / 10), 120);
+            for (let i = 0; i < count; i++) {
+                particlesArray.push(new FrostParticle());
+            }
+        }
+
+        function animateCanvas() {
+            ctx.clearRect(0, 0, width, height);
+
+            particlesArray.forEach(p => {
+                p.update();
+                p.draw();
+            });
+
+            requestAnimationFrame(animateCanvas);
+        }
+
+        initParticles();
+        animateCanvas();
+
+
+        // ================= SCROLL REVEAL OBSERVER =================
+        const revealNodes = document.querySelectorAll('.reveal-node');
+        const observerOptions = {
+            root: null,
+            threshold: 0.15,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        revealNodes.forEach(node => revealObserver.observe(node));
+
+
+        // ================= SCROLL PROGRESS & ACTIVE SECTION HIGHLIGHT =================
+        const progressBar = document.getElementById('progressBar');
+        const sections = document.querySelectorAll('section');
+        const navDots = document.querySelectorAll('.nav-dot');
+
+        window.addEventListener('scroll', () => {
+            const totalScroll = document.documentElement.scrollHeight - window.innerHeight;
+            const currentScroll = window.scrollY;
+            const scrollPercentage = (currentScroll / totalScroll) * 100;
+            progressBar.style.width = scrollPercentage + '%';
+
+            let currentSection = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= (sectionTop - sectionHeight / 3)) {
+                    currentSection = section.getAttribute('id');
+                }
+            });
+
+            navDots.forEach(dot => {
+                dot.classList.remove('bg-frostCyan', 'scale-125');
+                dot.classList.add('bg-slate-800');
+                if (dot.getAttribute('data-section') === currentSection) {
+                    dot.classList.remove('bg-slate-800');
+                    dot.classList.add('bg-frostCyan', 'scale-125');
+                }
+            });
+        });
+
+
+        // ================= CHAPTER 1: INTERACTIVE DUAL AURA GAUGE =================
+        const auraRange = document.getElementById('auraRange');
+        const auraKanji = document.getElementById('auraKanji');
+        const auraTitle = document.getElementById('auraTitle');
+        const auraDesc = document.getElementById('auraDesc');
+
+        auraRange.addEventListener('input', (e) => {
+            const val = parseInt(e.target.value);
+            
+            if (val < 40) {
+                auraTitle.innerText = `HÀN BĂNG BÁ KHÍ (${val}%)`;
+                auraDesc.innerText = 'Khí lạnh thấu xương, tâm trí ngưng trệ, đóng băng mọi suy nghĩ tiêu cực xung quanh.';
+                auraKanji.className = 'text-8xl font-oriental font-black text-transparent bg-clip-text bg-gradient-to-t from-cyan-400 to-slate-200 transition-all duration-500';
+            } else if (val < 75) {
+                auraTitle.innerText = `BĂNG HOẢ DUNG HÒA (${val}%)`;
+                auraDesc.innerText = 'Thái cực giao thoa! Vừa điềm tĩnh như băng tuyết vừa rực cháy khát vọng.';
+                auraKanji.className = 'text-8xl font-oriental font-black text-transparent bg-clip-text bg-gradient-to-t from-frostCyan via-dragonGold to-bloodRed transition-all duration-500';
+            } else {
+                auraTitle.innerText = `HOẢ KHÍ CUỒNG NHIỆT (${val}%)`;
+                auraDesc.innerText = 'Khí áp bộc phát rực rỡ, thiêu rụi mọi chướng ngại vật ngáng đường.';
+                auraKanji.className = 'text-8xl font-oriental font-black text-transparent bg-clip-text bg-gradient-to-t from-bloodRed to-amber-300 transition-all duration-500';
+            }
+
+            if (val % 25 === 0) {
+                triggerLightning();
+            }
+        });
+
+
+        // ================= LIGHTNING SHOCKWAVE TRIGGER =================
+        const lightningOverlay = document.getElementById('lightningOverlay');
+
+        function triggerLightning() {
+            lightningOverlay.style.opacity = '1';
+            setTimeout(() => {
+                lightningOverlay.style.opacity = '0';
+            }, 90);
+        }
+
+
+        // ================= OUTRO: AWAKEN BUTTON & MOTIVATIONAL QUOTE GENERATOR =================
+        const awakenBtn = document.getElementById('awakenBtn');
+        const quoteBox = document.getElementById('quoteBox');
+        const quoteText = document.getElementById('quoteText');
+
+        const quotes = [
+            "“Thần thái không nằm ở trang phục, thần thái nằm ở sự tự tin trong ánh mắt.” — Toàn Bá Khí",
+            "“Giữa dòng đời hỗn loạn, giữ được cái đầu lạnh chính là Bá Khí tối thượng.”",
+            "“Đừng chờ đợi cơ hội, hãy xuất hiện và tạo ra trường năng lượng của riêng bạn.”",
+            "“Băng tuyết ngàn năm không làm lạnh được trái tim có hoài hoán vương giả.”",
+            "“Toàn Bá Khí không chỉ là trào lưu, đó là lời nhắc nhở hãy luôn kiêu hãnh là chính mình!”"
+        ];
+
+        awakenBtn.addEventListener('click', () => {
+            playImpactSound();
+            triggerLightning();
+
+            // Burst particle explosion on canvas
+            for (let i = 0; i < 90; i++) {
+                const p = new FrostParticle();
+                p.y = height / 2;
+                p.x = width / 2;
+                p.speedY = (Math.random() - 0.5) * 14;
+                p.speedX = (Math.random() - 0.5) * 14;
+                p.size = Math.random() * 5 + 2;
+                particlesArray.push(p);
+            }
+
+            // Show random quote
+            const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+            quoteText.innerText = randomQuote;
+            quoteBox.classList.remove('opacity-0');
+            quoteBox.classList.add('opacity-100');
+        });
+    </script>
+</body>
+</html>
